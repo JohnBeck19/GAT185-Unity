@@ -6,12 +6,16 @@ public class OrbitCamera : MonoBehaviour
 {
 
     [SerializeField] Transform target;
-    [SerializeField][Range(20, 90)] float pitch = 40;
+    [SerializeField][Range(20, 90)] float defaultPitch = 40;
     [SerializeField][Range(1, 50)] float distance = 5;
     [SerializeField][Range(0.1f, 2.0f)] float sensitivity = 0.5f;
 
     float yaw = 0;
-
+    float pitch = 0;
+    private void Start()
+    {
+       pitch = defaultPitch;
+    }
     // Update is called once per frame
     void Update()
     {

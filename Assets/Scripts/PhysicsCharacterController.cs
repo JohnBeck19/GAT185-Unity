@@ -7,12 +7,17 @@ public class PhysicsCharacterController : MonoBehaviour
 {
     Rigidbody rb;
     Vector3 force = Vector3.zero;
+    [Header("Movement")]
     [SerializeField][Range(1, 100)] float maxForce = 10;
     [SerializeField][Range(1, 100)] float jumpForce = 10;
     [SerializeField] Transform view;
+    [Header("Collision")]
+    [SerializeField] float rayLength = 1;
+    [SerializeField] LayerMask groundLayerMask;
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;   
         rb = GetComponent<Rigidbody>();
     }
 
@@ -24,9 +29,11 @@ public class PhysicsCharacterController : MonoBehaviour
         direction.x = Input.GetAxis("Horizontal");
         direction.z = Input.GetAxis("Vertical");
 
-        force = view.rotation * direction * maxForce;
+        Quaternion yrotation = Quaternion.AngleAxis(view.rotation.eulerAngles.y, Vector3.up);
 
-        if (Input.GetButtonDown("Jump"))
+        force = yrotation * direction * maxForce;
+        Debug.DrawRay(transform.position, Vector3.down * rayLength, Color.red);
+        if (Input.GetButtonDown("Jump") && checkGround())
         {
             rb.AddForce(Vector3.up * jumpForce,ForceMode.Impulse);
         }
@@ -35,4 +42,11 @@ public class PhysicsCharacterController : MonoBehaviour
 	{
         rb.AddForce(force,ForceMode.Force);
 	}
+
+    private bool checkGround()
+    {
+
+        return Physics.Raycast(transform.position, Vector3.down, rayLength,groundLayerMask);
+    }
+
 }

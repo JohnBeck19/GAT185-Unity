@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
                 transform.rotation *= Quaternion.AngleAxis(angle * accelerate * Time.deltaTime, Vector3.up);
             }
         }
-        else { 
+        else {
             accelerate = 0;
         }
 

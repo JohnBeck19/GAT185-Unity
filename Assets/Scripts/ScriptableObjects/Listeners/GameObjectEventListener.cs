@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class IntEventListener : MonoBehaviour
+public class GameObjectEventListener : MonoBehaviour
 {
-	[SerializeField] private IntEvent _event = default;
+	[SerializeField] private GameObjectEvent _event = default;
 
-	public UnityEvent<int> listener;
+	public UnityEvent<GameObject> listener;
 	private void OnEnable()
 	{
 		_event?.Subscribe(Respond);
@@ -18,7 +18,7 @@ public class IntEventListener : MonoBehaviour
 		_event?.Unsubscribe(Respond);
 	}
 
-	private void Respond(int value)
+	private void Respond(GameObject value)
 	{
 		listener?.Invoke(value);
 	}

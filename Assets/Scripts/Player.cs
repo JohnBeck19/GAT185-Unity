@@ -7,21 +7,22 @@ using System;
 public class Player : MonoBehaviour
 {
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] TMP_Text finalScoreText;
     [SerializeField] FloatVariable health;
     [SerializeField] PhysicsCharacterController characterController;
+    [SerializeField] IntVariable score;
     [Header("Events")]
     [SerializeField] IntEvent scoreEvent = default;
     [SerializeField] VoidEvent gameStartEvent = default;
     [SerializeField] VoidEvent playerDeadEvent = default;
 
 
-    private int score = 0;
     public int Score { 
-        get { return score; }  
+        get { return score.Value; }  
         set { 
-            score = value; 
-            scoreText.text = score.ToString(); 
-            scoreEvent.RaiseEvent(score);
+            score.Value = value; 
+            scoreText.text = score.Value.ToString(); 
+            scoreEvent.RaiseEvent(score.Value);
         } 
     
     }
@@ -40,16 +41,17 @@ public class Player : MonoBehaviour
 	{
         health.value = 50.0f;
         characterController.enabled = false;
-	}
+    }
     private void onStartGame()
     { 
         characterController.enabled = true;
+
     }
     public void onRespawn(GameObject respawn)
     { 
         transform.position = respawn.transform.position;
         transform.rotation = respawn.transform.rotation;
-        characterController.Reset();
+        characterController.Reset(); 
     }
     public void Damage(float damage)
     {
@@ -57,6 +59,7 @@ public class Player : MonoBehaviour
         if (health.value <= 0)
         {
             playerDeadEvent.RaiseEvent();
+            finalScoreText.text = Score.ToString();
         }
     }
 }

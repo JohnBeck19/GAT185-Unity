@@ -14,6 +14,11 @@ public class PhysicsCharacterController : MonoBehaviour
     [Header("Collision")]
     [SerializeField] float rayLength = 1;
     [SerializeField] LayerMask groundLayerMask;
+    [SerializeField] AudioSource playerAudioSource;
+    [SerializeField] AudioClip jump;
+    [SerializeField] AudioClip roll;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +39,17 @@ public class PhysicsCharacterController : MonoBehaviour
         Debug.DrawRay(transform.position, Vector3.down * rayLength, Color.red);
         if (Input.GetButtonDown("Jump") && checkGround())
         {
+            playerAudioSource.PlayOneShot(jump);
             rb.AddForce(Vector3.up * jumpForce,ForceMode.Impulse);
+        }
+        if (rb.velocity != Vector3.zero && checkGround() == true)
+        {
+            float mag = rb.velocity.magnitude * 0.1f;
+            playerAudioSource.volume = (mag > 0.75f) ? 0.75f : mag;
+           if (!playerAudioSource.isPlaying) playerAudioSource.PlayOneShot(roll);
+        }
+        else {
+           // playerAudioSource.Pause();
         }
     }
 	private void FixedUpdate()

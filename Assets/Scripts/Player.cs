@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         characterController.enabled = true;
 
     }
+
     public void onRespawn(GameObject respawn)
     { 
         transform.position = respawn.transform.position;

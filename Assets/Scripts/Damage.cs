@@ -11,14 +11,19 @@ public class Damage : MonoBehaviour
 	{
 		if (oneTime && other.gameObject.TryGetComponent<Player>(out Player player)) 
 		{ 
-			player.Damage(damage);
+			player.ApplyDamage(damage);
 		}
 	}
 	private void OnTriggerStay(Collider other)
 	{
 		if (!oneTime && other.gameObject.TryGetComponent<Player>(out Player player))
 		{
-			player.Damage(damage* Time.deltaTime);
+			player.ApplyDamage(damage* Time.deltaTime);
 		}
 	}
+}
+
+public interface IDamagable
+{
+    void ApplyDamage(float damage);
 }

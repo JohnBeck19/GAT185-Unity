@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         transform.rotation = respawn.transform.rotation;
         characterController.Reset(); 
     }
-    public void Damage(float damage)
+    public void ApplyDamage(float damage)
     {
         health.value -= damage;
         if (health.value <= 0)

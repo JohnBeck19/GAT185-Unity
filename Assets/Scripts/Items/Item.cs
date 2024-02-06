@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
+	[SerializeField] Action action;
 	public virtual bool isEquipped { get; set; } = false;
 
 	public virtual void Equip()

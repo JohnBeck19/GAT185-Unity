@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3234786209494209075}
   - component: {fileID: 409313892285524226}
   - component: {fileID: 8179215442992320661}
+  - component: {fileID: 2799376403504251386}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -145,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoData: {fileID: 11400000, guid: 8add620182724774ba2988a2e499a179, type: 2}
+  action: {fileID: 2799376403504251386}
 --- !u!54 &409313892285524226
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -193,6 +195,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0.82}
+--- !u!114 &2799376403504251386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3943099514723766055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4866ddd518267846b46dae1c8e91ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagName: 
 --- !u!1 &4958284304611728072
 GameObject:
   m_ObjectHideFlags: 0

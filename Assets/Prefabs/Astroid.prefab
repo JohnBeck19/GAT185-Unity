@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 8845522963853975889}
   - component: {fileID: 6466616612042840082}
   - component: {fileID: 9016644668460675409}
-  - component: {fileID: 7520785446377362197}
-  - component: {fileID: 3631212015609878834}
-  m_Layer: 0
+  - component: {fileID: 9217933896586871965}
+  m_Layer: 7
   m_Name: Astroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5265248361133769719}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -66.27, y: -260.94, z: -66.97}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -107,7 +106,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.5
   m_Center: {x: -0.0000059604645, y: 0.000000834465, z: 0}
---- !u!114 &7520785446377362197
+--- !u!114 &9217933896586871965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,22 +115,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5265248361133769719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4866ddd518267846b46dae1c8e91ef8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9570029ffe3d1d3438975bf14179cd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName: 
---- !u!114 &3631212015609878834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5265248361133769719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cd0a556ad1761a4baf0060d503fdab6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
+  health: 1
+  points: 10
+  scoreEvent: {fileID: 11400000, guid: c62ae944121a80a46ad9b6bff992804b, type: 2}
   hitPrefab: {fileID: 0}
   destroyPrefab: {fileID: 1804206099813350, guid: 4dd02b5f854b6c84990fbeb810abffe4, type: 3}

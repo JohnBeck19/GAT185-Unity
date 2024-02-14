@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   allowMultiple: 0
   equipable: 0
-  usageType: 1
+  usageType: 0
   animTriggerName: 
   animEquipName: 
   rigLayerWeight: []

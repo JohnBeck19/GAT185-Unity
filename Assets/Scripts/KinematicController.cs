@@ -8,7 +8,8 @@ public class KinematicController : MonoBehaviour, IDamagable
 	[SerializeField, Range(0, 40)] float RotationAngle = 10;
 	[SerializeField, Range(0, 40)] float RotationRate = 10;
 	[SerializeField] float maxDistance = 5;
-	public float health = 100;
+	[SerializeField] FloatVariable health;
+	[SerializeField] PlayerShip player;
 
 
     void Update()
@@ -30,7 +31,6 @@ public class KinematicController : MonoBehaviour, IDamagable
 	}
     public void ApplyDamage(float damage)
     {
-        health -= damage;
-		Debug.Log(health);
+        player.ApplyDamage(damage);
     }
 }

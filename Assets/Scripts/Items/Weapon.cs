@@ -7,6 +7,7 @@ public class Weapon : Item
 {
 	[SerializeField] WeaponData weaponData;
 	[SerializeField] Animator animator;
+	[SerializeField] public string weaponName;
 	//[SerializeField] RigBuilder rigBuilder;
 	[SerializeField] Transform ammoTransform;
 
@@ -99,7 +100,7 @@ public class Weapon : Item
 	{
 		while (true)
 		{
-			Instantiate(weaponData.ammoPrefab, ammoTransform.position, ammoTransform.rotation);
+			if (ammoTransform) Instantiate(weaponData.ammoPrefab, ammoTransform.position, ammoTransform.rotation);
 			yield return new WaitForSeconds(weaponData.fireRate);
 		}
 	}

@@ -21,4 +21,19 @@ public class Inventory : MonoBehaviour
     { 
         currentItem?.StopUse();
     }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (currentItem == item[0])
+            {
+                currentItem = item[1];
+            }
+            else
+            {
+                currentItem = item[0];
+            }
+            currentItem.Equip();
+        }
+    }
 }

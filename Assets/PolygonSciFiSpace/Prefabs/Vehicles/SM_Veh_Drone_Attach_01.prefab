@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 23544755976305426}
   - component: {fileID: 64979631015632002}
   - component: {fileID: 1835655243552846916}
-  m_Layer: 0
+  - component: {fileID: -3535452395659158717}
+  - component: {fileID: 6201693596735553866}
+  m_Layer: 7
   m_Name: SM_Veh_Drone_Attach_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,3 +121,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb34a644e596f024cad6f49e7f2e92ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3535452395659158717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165255073185956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca398587257f5a149b5390c4a53c52a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 6201693596735553866}
+  damage: 5
+  damageOverTime: 0
+--- !u!114 &6201693596735553866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165255073185956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4866ddd518267846b46dae1c8e91ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagName: 

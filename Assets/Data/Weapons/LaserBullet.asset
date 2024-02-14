@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 425c7a25c7972174580ad22a854559cc, type: 3}
-  m_Name: EnemyRocketAmmo
+  m_Name: LaserBullet
   m_EditorClassIdentifier: 
   ammoType: 1
-  lifetime: 4
-  damage: 1
-  destroyOnImpact: 0
-  impactPrefab: {fileID: 1804206099813350, guid: 4dd02b5f854b6c84990fbeb810abffe4, type: 3}
+  lifetime: 2
+  damage: 10
+  destroyOnImpact: 1
+  impactPrefab: {fileID: 1777957728757660, guid: 0f8982e7a09431147a4a9b72a57ef449, type: 3}
   force: 100
   forceMode: 2
   damageOverTime: 0

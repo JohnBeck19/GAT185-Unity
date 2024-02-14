@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPickup : MonoBehaviour
+public class SpeedPickup : MonoBehaviour
 {
-    [SerializeField] float health;
-    [SerializeField] GameObject pickupPrefab;
 
+    // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<PlayerShip>(out PlayerShip player))
         {
-            player.ApplyHealth(health);
-            if (pickupPrefab != null) Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+            player.SpeedBuff();
 
             Destroy(gameObject);
         }

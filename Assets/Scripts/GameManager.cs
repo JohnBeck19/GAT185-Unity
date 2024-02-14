@@ -8,23 +8,18 @@ public class GameManager : Singleton<GameManager>
 {
     [SerializeField] GameObject titleUI;
     [SerializeField] GameObject GameUI;
-    [SerializeField] TMP_Text livesUI;
-    [SerializeField] TMP_Text timerUI;
     [SerializeField] TMP_Text ScoreUI;
     [SerializeField] Slider healthUI;
     [SerializeField] GameObject EndScreenUI;
     [SerializeField] TMP_Text finalScoreText;
 
     [SerializeField] FloatVariable health;
-    [SerializeField] FloatVariable timer;
-    [SerializeField] IntVariable lives;
     [SerializeField] IntVariable score;
 
-    [SerializeField] GameObject respawn;
     [Header("Events")]
-   // [SerializeField] IntEvent scoreEvent;
+    [SerializeField] IntEvent scoreEvent;
     [SerializeField] VoidEvent gameStartEvent;
-    [SerializeField] GameObjectEvent respawnEvent;
+    [SerializeField] VoidEvent playerDeadEvent;
     public enum State 
     { 
         TITLE,
@@ -33,17 +28,14 @@ public class GameManager : Singleton<GameManager>
         GAME_OVER
     }
     public State state = State.TITLE;
- 
-    public int Lives {  get { return lives.Value; } set { lives.Value = value; livesUI.text = "LIVES " + lives.Value.ToString(); } }
-    public float Timer {  get { return timer.value; } set { timer.value = value; timerUI.text = timer.value.ToString("0.00"); } }
+  
 
-    // Start is called before the first frame update
     void Start()
     {
-      //  scoreEvent.Subscribe(OnAddPoints);
+        scoreEvent.Subscribe(OnAddPoints);
+        playerDeadEvent.Subscribe(onPlayerDead);
     }
 
-    // Update is called once per frame
     void Update()
     {
 		switch (state)
@@ -54,7 +46,6 @@ public class GameManager : Singleton<GameManager>
                 GameUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                Lives = 3;
 				break;
 			case State.START_GAME:
 
@@ -64,19 +55,11 @@ public class GameManager : Singleton<GameManager>
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
 
-                Timer = 60;
-                health.value = 100;
                 state = State.PLAY_GAME;
                 gameStartEvent.RaiseEvent();
-                respawnEvent.RaiseEvent(respawn);
 				break;
 			case State.PLAY_GAME:
-                Timer = Timer - Time.deltaTime;
-                if (Timer <= 0)
-                {
-                    onPlayerDead();
-                        
-                }
+
 				break;
 			case State.GAME_OVER:
                 EndScreenUI.SetActive(true);
@@ -100,17 +83,11 @@ public class GameManager : Singleton<GameManager>
     public void onPlayerDead()
 	{
         finalScoreText.text = ScoreUI.text;
-        Lives = Lives - 1;
-        if (Lives > 0) state = State.START_GAME;
-        else state = state = State.GAME_OVER;
+        state = State.GAME_OVER;
 
 	}
 	public void OnAddPoints(int points)
     {
-        print(points);
-    }
-    public void onTimerPickup(float time)
-    {
-        Timer += time;
+        ScoreUI.text = score.Value.ToString();
     }
 }

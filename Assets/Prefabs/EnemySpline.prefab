@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2567482105011556789}
   - component: {fileID: 551049037104771866}
   - component: {fileID: 5856800423375672336}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,9 +89,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8213702507976430064}
   - component: {fileID: 1729073110542609621}
-  - component: {fileID: 2395457437565826907}
-  - component: {fileID: -2515092630923114415}
-  m_Layer: 0
+  - component: {fileID: 3555712437498349444}
+  - component: {fileID: 6096201126211004506}
+  - component: {fileID: 4221602715609131307}
+  - component: {fileID: 869829009957189080}
+  m_Layer: 7
   m_Name: EnemySpline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,87 +145,87 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: -202
-        y: 13
-        z: -265
+        x: 0
+        y: 0
+        z: 0
       TangentIn:
-        x: -0
-        y: -0
-        z: -66.843925
+        x: 0
+        y: 0
+        z: 0
       TangentOut:
         x: 0
         y: 0
-        z: 78.66089
+        z: 0
       Rotation:
         value:
-          x: -0.2424519
-          y: -0.33101606
-          z: 0.5371358
-          w: 0.7369739
+          x: 0.051651128
+          y: 0.37918174
+          z: 0.12469684
+          w: 0.91542566
     - Position:
-        x: -143
-        y: -66
-        z: 189
-      TangentIn:
-        x: 0.000019073486
-        y: 0.000005722046
-        z: -91.0016
-      TangentOut:
-        x: -0.000011444092
+        x: 0
         y: 0
-        z: 91.001595
-      Rotation:
-        value:
-          x: 0.1881667
-          y: 0.5184279
-          z: 0.24709578
-          w: 0.7967241
-    - Position:
-        x: 271.92426
-        y: -36.3
-        z: 203.49695
+        z: 100
       TangentIn:
         x: -0
         y: -0
-        z: -75.86857
+        z: -33.333332
       TangentOut:
         x: 0
         y: 0
-        z: 75.866585
+        z: 33.333332
       Rotation:
         value:
-          x: 0.36520326
-          y: 0.8806046
-          z: 0.13794956
-          w: 0.26857394
+          x: 0
+          y: 0
+          z: 0
+          w: 1
     - Position:
-        x: 118.2
-        y: -44.7
-        z: -183.2
+        x: 0
+        y: 0
+        z: 200
       TangentIn:
         x: -0
         y: -0
-        z: -116.50905
+        z: -33.333332
       TangentOut:
         x: 0
         y: 0
-        z: 104.60081
+        z: 33.333332
       Rotation:
         value:
-          x: 0.28076482
-          y: 0.8669135
-          z: -0.081432156
-          w: -0.4037337
+          x: 0
+          y: 0
+          z: 0.2990408
+          w: 0.9542404
+    - Position:
+        x: 0
+        y: 0
+        z: 300
+      TangentIn:
+        x: -0
+        y: -0
+        z: -10
+      TangentOut:
+        x: 0
+        y: 0
+        z: 10
+      Rotation:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
     m_MetaData:
-    - Mode: 0
-      Tension: 0.5
-    - Mode: 4
+    - Mode: 1
       Tension: 0.5
     - Mode: 0
       Tension: 0.5
     - Mode: 0
       Tension: 0.5
-    m_Closed: 1
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
     m_IntData:
       m_Data: []
     m_FloatData:
@@ -234,7 +236,7 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
---- !u!114 &2395457437565826907
+--- !u!114 &3555712437498349444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,10 +245,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 6638232618760524620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb34a644e596f024cad6f49e7f2e92ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac3e1929f893eb449d7a7a94d2b285c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2515092630923114415
+  health: 25
+  points: 10
+  scoreEvent: {fileID: 11400000, guid: c62ae944121a80a46ad9b6bff992804b, type: 2}
+  hitPrefab: {fileID: 0}
+  destroyPrefab: {fileID: 1290715649332758, guid: 587eaecaa621be74486f351c78b4f0a8, type: 3}
+  weapon: {fileID: 6096201126211004506}
+  minFireRate: 1
+  maxFireRate: 1.5
+--- !u!114 &6096201126211004506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638232618760524620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14530a0c955e14429c8ee31cb68751b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: ce66cc0589bdb0644b0b110cd71ee77b, type: 2}
+  animator: {fileID: 0}
+  weaponName: 
+  ammoTransform: {fileID: 6695137045101075495}
+--- !u!114 &4221602715609131307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,6 +286,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 10
+--- !u!114 &869829009957189080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638232618760524620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb34a644e596f024cad6f49e7f2e92ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7234619747581806868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270,6 +309,10 @@ PrefabInstance:
     - target: {fileID: 1883019902606728, guid: 3a4cdad4b75b5344eb3a3b6d07e0cb85, type: 3}
       propertyPath: m_Name
       value: SM_Ship_Fighter_Heavy_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1883019902606728, guid: 3a4cdad4b75b5344eb3a3b6d07e0cb85, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4549877619635688, guid: 3a4cdad4b75b5344eb3a3b6d07e0cb85, type: 3}
       propertyPath: m_LocalPosition.x

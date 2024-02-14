@@ -13,7 +13,6 @@ public class TimePickup : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        gameManager.onTimerPickup(10.0f);
 
         Instantiate(pickupPrefab,transform.position,Quaternion.identity);
 
